@@ -23,7 +23,7 @@ def copy_playlist_files():
             if os.path.exists(full_source_path):
                 os.makedirs(os.path.dirname(full_dest_path), exist_ok=True)
                 shutil.copy2(full_source_path, full_dest_path)
-
+    print(full_dest_path)
     print("Files copied successfully!")
 
 # Set up GUI
