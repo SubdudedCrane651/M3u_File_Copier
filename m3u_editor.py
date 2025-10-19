@@ -10,6 +10,28 @@ class M3UEditor(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("M3U Playlist Editor")
+        
+        self.setStyleSheet("""
+    QWidget {
+        background-color: #FFFF66;  /* Light yellow */
+        color: black;
+        font-family: Segoe UI, sans-serif;
+        font-size: 12pt;
+    }
+    QPushButton {
+        background-color: #FFD700;  /* Gold */
+        border: 1px solid black;
+        padding: 6px;
+    }
+    QListWidget {
+        background-color: #FFFACD;  /* LemonChiffon */
+        border: 1px solid black;
+    }
+    QComboBox {
+        background-color: #FFFACD;
+        border: 1px solid black;
+    }
+""")
         self.resize(600, 500)
 
         self.layout = QVBoxLayout()
