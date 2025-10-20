@@ -54,6 +54,10 @@ class MP3CoverEmbedder(QWidget):
 
         try:
             audio = MP3(self.mp3_path, ID3=ID3)
+            
+            # Remove existing APIC (album art) frames
+            audio.tags.delall("APIC")
+
             try:
                 audio.add_tags()
             except error:
