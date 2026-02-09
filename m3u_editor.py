@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import (
     QFileDialog, QComboBox, QMessageBox, QLabel, QHBoxLayout
 )
 from mutagen.mp3 import MP3
+from PyQt5.QtGui import QIcon
 
 class M3UEditor(QWidget):
     def __init__(self):
@@ -38,6 +39,11 @@ class M3UEditor(QWidget):
         self.label = QLabel("Playlist Tracks:")
         self.file_list = QListWidget()
 
+        import os
+
+        icon_path = os.path.join(os.path.dirname(__file__), "MP3_icon.png")
+        self.setWindowIcon(QIcon(icon_path))
+      
         # Buttons
         self.button_layout = QHBoxLayout()
         self.load_button = QPushButton("Load .m3u")
@@ -144,6 +150,9 @@ class M3UEditor(QWidget):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    icon_path = os.path.join(os.path.dirname(__file__), "MP3_icon.png")
+    app.setWindowIcon(QIcon(icon_path))
+    print("Icon exists:", os.path.exists(icon_path))
     window = M3UEditor()
     window.show()
     sys.exit(app.exec_())
