@@ -7,6 +7,12 @@ from PyQt5.QtWidgets import (
 from mutagen.mp3 import MP3
 from PyQt5.QtGui import QIcon
 
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
+import os
+os.environ["QT_LOGGING_RULES"] = "qt.qpa.fonts=false"
+
 class M3UEditor(QWidget):
     def __init__(self):
         super().__init__()
